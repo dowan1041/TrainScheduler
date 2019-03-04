@@ -15,7 +15,7 @@ $("#add-train-btn").on("click", function(event) {
 
   var trainName = $("#train-name-input").val().trim();
   var trainDestination = $("#destination-input").val().trim();
-  var trainTime = $("#time-input").val().trim();
+  var trainTime = moment($("#time-input").val().trim(), "HH:mm").format('LT');
   var trainFrequency = $("#frequency-input").val().trim();
 
   var newTrain = {
@@ -46,10 +46,13 @@ database.ref().on("child_added", function(childSnapshot) {
   var trainTime = childSnapshot.val().time;
   var trainFrequency = childSnapshot.val().frequency;
 
-  var timeRemainder = moment().diff(moment.unix(trainTime), "minutes") % trainFrequency ;
+  var firstTrain = moment(childSnapshot.val().time, "LT").subtract(1, "years");
+  var timeDiff = moment().diff(moment(firstTrain), "minutes");
+  var timeRemainder = timeDiff % trainFrequency ;
   var minutes = trainFrequency - timeRemainder;
 
-  var nextTrain = moment().add(minutes, "m").format("HH:mm");
+  var nextTrain = moment().add(minutes, "minutes")
+  nextTrain = moment(nextTrain).format("LT");
 
 
   var newRow = $("<tr>").append(

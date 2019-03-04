@@ -10,11 +10,10 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-  <!-- Moment.js Reference -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  
 
   <style>
     #trainSchedule-table th,
@@ -86,7 +85,7 @@
                 <label for="rate-input">Frequency (min)</label>
                 <input class="form-control" id="frequency-input" placeholder="" type="text">
               </div>
-              <button class="btn btn-primary float-right" id="add-train-btn">Submit</button>
+              <button class="btn btn-primary float-left" id="add-train-btn">Submit</button>
             </form>
 
           </div>
@@ -96,10 +95,10 @@
 
   </div>
 
-  <!-- JavaScript -->
 
   <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>
+  
   <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
